@@ -5,7 +5,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
-        '/',
+        // I see what I missed xD
         '/index.html',
         '/restaurant.html',
         '/css/styles.css',
@@ -17,20 +17,30 @@ self.addEventListener('install', event => {
         '/img/not-available.jpg',
       ]);
     }).catch(err => {
-        consoles.log("Error while caching: ", err);
+        console.log("Error while caching: ", err);
     })
   );
 });
 
 self.addEventListener('fetch', event => {
-    event.respondWith(
-        fetch(event.request).then(res => {
-          if(res.status === 404) {
-              return fetch('img/not-available.jpg')
-          }
-          return res;
-        }).catch(() => {
-            return new Response('triggering a 404... Somehow :D');
-        })
-    );
+
+  let reqURL = new URL(event.request.url);
+
+  if(reqURL.origin === location.origin) {
+    if(reqURL.pathname == '/') {
+      event.respondWith(caches.match('/index.html'));
+      return ;
+    }
+  }
+  
+  event.respondWith(
+      fetch(event.request).then(res => {
+        if(res.status === 404) {
+            return fetch('img/not-available.jpg')
+        }
+        return res;
+      }).catch(() => {
+          return new Response('triggering a 404... Somehow :D');
+      })
+  );
 });

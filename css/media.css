@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 360px) {
-    #restaurants-list li h1 {
+    #restaurants-list li h2 {
         font-size: 12pt;
     }
 
@@ -30,7 +30,7 @@
 }
 
 @media screen and (min-width: 361px) and (max-width: 600px) {
-    #restaurants-list li h1 {
+    #restaurants-list li h2 {
         font-size: 14pt;
     }
     
@@ -48,7 +48,7 @@
 }
 
 @media screen and (min-width: 601px) and (max-width: 800px) {
-    #restaurants-list li h1 {
+    #restaurants-list li h2 {
         font-size: 24pt;
     }
     
@@ -62,7 +62,7 @@
 }
 
 @media screen and (min-width: 801px) {
-    #restaurants-list li h1 {
+    #restaurants-list li h2 {
         font-size: 24pt;
     }
 
@@ -93,7 +93,7 @@
         width: 90%
     }
 
-    #restaurant-name, #reviews-container > h2 {
+    #restaurant-name, #reviews-container > h3 {
         align-self: center;
     }
 }

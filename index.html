@@ -33,9 +33,9 @@
 
   <main id="maincontent">
     <section id="map-container">
-      <div id="map" tabindex="10" role="application"></div>
+      <div id="map" role="application" aria-label="Map"></div>
     </section>
-    <section>
+    <section aria-label="Restaurant filtering">
       <div id="filter-div" class="filter-options">
         <h2>Filter Results</h2>
         <div class="filter-choices" role="form">
@@ -47,7 +47,7 @@
           </select>
         </div>
       </div>
-      <div class="restaurants-container">
+      <div class="restaurants-container" aria-label="Restaurants List">
         <ul id="restaurants-list"></ul>
       </div>
     </section>
