@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
  */
 initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
+    if (error) { 
       console.error(error);
     } else {      
       self.newMap = L.map('map', {
@@ -39,12 +39,12 @@ initMap = () => {
  * Get current restaurant from page URL.
  */
 fetchRestaurantFromURL = (callback) => {
-  if (self.restaurant) { // restaurant already fetched!
+  if (self.restaurant) { 
     callback(null, self.restaurant)
     return;
   }
   const id = getParameterByName('id');
-  if (!id) { // no id found in URL
+  if (!id) { 
     error = 'No restaurant id in URL'
     callback(error, null);
   } else {
@@ -56,7 +56,7 @@ fetchRestaurantFromURL = (callback) => {
       }
       fillRestaurantHTML();
       callback(null, restaurant)
-      // ignore map content (useless for keyboard navigation)
+      
       const leaf2 = document.querySelector('.leaflet-control-attribution');
       leaf2.querySelectorAll('a').forEach((element) => {
         element.tabIndex = -1;
@@ -108,7 +108,6 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const row = document.createElement('tr');
     row.classList.add('hours-row');
     row.tabIndex = 0;
-    // row.setAttribute('role', )
 
     const day = document.createElement('td');
     day.classList.add('td-day');
