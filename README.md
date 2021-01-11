@@ -5,5 +5,5 @@ Made using [mapbox](https://github.com/mapbox).
 
 ## How to Use!
   - Clone the repo `git clone https://github.com/ouss1002/rra`
-  - You need to have `Mapbox` running on a server
+  - You need to have `Mapbox` running on a python server
   - Launch `index.html`
